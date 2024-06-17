@@ -31,6 +31,10 @@ export enum GameCode {
   GST = "GST",
   GSF = "GSF",
   GSX = "GSX",
+  DR  = "DR",
+  DRT = "DRT",
+  DRF = "DRF",
+  DRX = "DRX",
 }
 
 function hashChar(pwChar : string, hashNum : number) {
