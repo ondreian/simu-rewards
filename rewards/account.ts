@@ -1,6 +1,6 @@
 import makeFetchCookie from 'fetch-cookie'
 import * as cheerio from "cheerio"
-if RegExp("^GS").test(gameCode) {
+if (gameCode.startsWith("GS")) {
   const signinUrl = "https://store.play.net/Account/SignIn?returnURL=%2Fstore%2Fpurchase%2Fgs"
 } else {
   const signinUrl = "https://store.play.net/Account/SignIn?returnURL=%2Fstore%2Fpurchase%2Fdr"
