@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     name: login account
     steps:
-      - uses: ondreian/simu-rewards@main
+      - uses: ondreian/simu-rewards@v1
         with:
           account: ${{ secrets.ACCOUNT }}
           password: ${{ secrets.PASSWORD }}
