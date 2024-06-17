@@ -32,7 +32,7 @@ for (const character of characters) {
     //console.log("logging in %s", character.name)
     const otp = await Rewards.SGE.Secure.getOTP(account, password, gameCode as GameCode, character.name)
     //console.log("received for %s at %s:%s", character.name, otp.host, otp.port)
-    const outcome = await Rewards.Gemstone.useOTP(otp)
+    const outcome = await Rewards.Game.useOTP(otp)
     console.log("%s > %s", character.name, outcome.message)
     await new Promise(resolve => setTimeout(resolve, 500))
   } catch (err : any) {
