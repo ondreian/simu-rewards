@@ -2,7 +2,7 @@
 
 **ALWAYS USE GITHUB SECRETS**
 
-Secret to be used for account and password are required, gamecode is optional but defaults to GS3.
+Secret to be used for account and password are required, game is optional but defaults to GS3.
 Game Code Options:
 * GS3 - Gemstone Prime
 * GST - Gemstone Test
@@ -34,5 +34,5 @@ jobs:
         with:
           account: ${{ secrets.ACCOUNT2 }}
           password: ${{ secrets.PASSWORD2 }}
-          game_code: ${{ secrets.GAMECODE2 }}
+          game: ${{ secrets.GAMECODE2 }}
 ```
