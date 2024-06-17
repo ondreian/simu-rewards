@@ -10,7 +10,7 @@ if (!account) {
 }
 
 if (!password) {
-  throw new Error("password was missing")
+  throw new Error(`password was missing for ${account}`)
 }
 
 if (!gameCode) {
