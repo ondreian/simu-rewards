@@ -17,7 +17,7 @@ runs:
     #- uses: actions/checkout@v4
     - uses: oven-sh/setup-bun@v1
     - name: claim rewards
-      run: bun install && bun index.ts
+      run: cd ${{ github.action_path }} && bun install && bun index.ts
       shell: bash
       env:
         ACCOUNT: ${{ inputs.account }}
