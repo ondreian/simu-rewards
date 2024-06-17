@@ -1,10 +1,11 @@
 # Daily Simutronic Rewards
 
-** ALWAYS USE GITHUB SECRETS **
+**ALWAYS USE GITHUB SECRETS**
 
 example usage with CRON:
 
 ```yaml
+#.github/workflows/rewards.yml
 name: rewards
 on:
   schedule:
