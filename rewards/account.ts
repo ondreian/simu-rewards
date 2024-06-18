@@ -1,20 +1,25 @@
 import makeFetchCookie from 'fetch-cookie'
 import * as cheerio from "cheerio"
-if (gameCode.startsWith("GS")) {
-  const signinUrl = "https://store.play.net/Account/SignIn?returnURL=%2Fstore%2Fpurchase%2Fgs"
-} else {
-  const signinUrl = "https://store.play.net/Account/SignIn?returnURL=%2Fstore%2Fpurchase%2Fdr"
-}
+import type { GameCode } from "./eaccess/secure"
+
 const claimReward = "https://store.play.net/Store/ClaimReward"
 
 const fetchWithCookies = makeFetchCookie(fetch)
 
-export async function getToken () {
-  const rewriter = new HTMLRewriter()
+function signinUrl (gameCode : GameCode) {
+  if (gameCode.startsWith("GS")) {
+    return "https://store.play.net/Account/SignIn?returnURL=%2Fstore%2Fpurchase%2Fgs"
+  } else {
+    return "https://store.play.net/Account/SignIn?returnURL=%2Fstore%2Fpurchase%2Fdr"
+  }
+}
 
+export async function getToken (gameCode : GameCode) {
+  const rewriter = new HTMLRewriter()
+  const storeUrl = signinUrl(gameCode)
   let token = ""
 
-  const input = await fetchWithCookies(signinUrl)
+  const input = await fetchWithCookies(storeUrl)
 
   rewriter.on("[name='__RequestVerificationToken']", {
     element(element) {
@@ -29,15 +34,15 @@ export async function getToken () {
   return token
 }
 
-export async function login (account: string, password : string) {
-  const token = await getToken()
-
+export async function login (account: string, password : string, gameCode : GameCode) {
+  const token = await getToken(gameCode)
+  const storeUrl = signinUrl(gameCode)
   const auth = new FormData()
   auth.set("UserName", account)
   auth.set("Password", password)
   auth.set("__RequestVerificationToken", token)
 
-  const login = await fetchWithCookies(signinUrl, {
+  const login = await fetchWithCookies(storeUrl, {
     method: "POST",
     body: auth,
   })
@@ -48,7 +53,6 @@ export async function login (account: string, password : string) {
     next: "",
     cheerio: cheerio.load(await login.text()),
   }
-
 
   const authenticated_account = state.cheerio("#login").text()
 
@@ -69,8 +73,8 @@ export async function login (account: string, password : string) {
 }
 
 
-export async function claimAccountRewards (account : string, password: string) {
-  const state = await login(account, password)
+export async function claimAccountRewards (account : string, password: string, gameCode : GameCode) {
+  const state = await login(account, password, gameCode)
 
   if (state.next.toLowerCase().startsWith("next subscription bonus")) {
     return {account, message: state.next, balance: state.balance}
