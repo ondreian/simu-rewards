@@ -27,11 +27,11 @@ jobs:
     runs-on: ubuntu-latest
     name: login account
     steps:
-      - uses: ondreian/simu-rewards@v1
+      - uses: ondreian/simu-rewards@v1.1.0
         with:
           account: ${{ secrets.ACCOUNT1 }}
           password: ${{ secrets.PASSWORD1 }}
-      - uses: ondreian/simu-rewards@v1
+      - uses: ondreian/simu-rewards@v1.1.0
         with:
           account: ${{ secrets.ACCOUNT2 }}
           password: ${{ secrets.PASSWORD2 }}
