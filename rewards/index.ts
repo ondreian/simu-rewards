@@ -1,5 +1,5 @@
 import * as Account from "./account"
 import * as SGE from "./sge"
-import * as Gemstone from "./gemstone"
+import * as Game from "./game"
 
-export {Account, SGE, Gemstone}
+export {Account, SGE, Game}

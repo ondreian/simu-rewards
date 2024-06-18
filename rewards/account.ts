@@ -1,6 +1,10 @@
 import makeFetchCookie from 'fetch-cookie'
 import * as cheerio from "cheerio"
-const signinUrl = "https://store.play.net/Account/SignIn?returnURL=%2Fstore%2Fpurchase%2Fgs"
+if (gameCode.startsWith("GS")) {
+  const signinUrl = "https://store.play.net/Account/SignIn?returnURL=%2Fstore%2Fpurchase%2Fgs"
+} else {
+  const signinUrl = "https://store.play.net/Account/SignIn?returnURL=%2Fstore%2Fpurchase%2Fdr"
+}
 const claimReward = "https://store.play.net/Store/ClaimReward"
 
 const fetchWithCookies = makeFetchCookie(fetch)

@@ -2,6 +2,17 @@
 
 **ALWAYS USE GITHUB SECRETS**
 
+Secret to be used for account and password are required, game is optional but defaults to GS3. Be sure to set repository to private to avoid Github's cron disabling if no activity within 60 days limitation.
+Game Code Options:
+* GS3 - Gemstone Prime
+* GST - Gemstone Test
+* GSX - Gemstone Platinum
+* GSF - Gemstone Shattered
+* DR  - DragonRealms Prime
+* DRT - DragonRealms Test
+* DRX - DragonRealms Platinum
+* DRF - DragonRealms Fallen
+
 example usage with CRON:
 
 ```yaml
@@ -17,6 +28,11 @@ jobs:
     steps:
       - uses: ondreian/simu-rewards@v1
         with:
-          account: ${{ secrets.ACCOUNT }}
-          password: ${{ secrets.PASSWORD }}
+          account: ${{ secrets.ACCOUNT1 }}
+          password: ${{ secrets.PASSWORD1 }}
+      - uses: ondreian/simu-rewards@v1
+        with:
+          account: ${{ secrets.ACCOUNT2 }}
+          password: ${{ secrets.PASSWORD2 }}
+          game: ${{ secrets.GAMECODE2 }}
 ```

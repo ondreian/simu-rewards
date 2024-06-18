@@ -27,6 +27,13 @@ export async function useOTP (otp : OTP) : Promise<{message: string}> {
         ok({message: message})
       }
 
+      if (incoming.includes("consecutive days, you have earned")) {
+        const m = incoming.match(/consecutive days, you have earned (.*)(?:!|\.)/)
+        const message = m ? m[1] : "claimed login reward"
+        game.destroy()
+        ok({message: message})
+      }
+
       if (incoming.includes(`<prompt time=`)) {
         game.destroy()
         ok({message: "already claimed"})
