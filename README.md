@@ -13,12 +13,13 @@ Game Code Options:
 * DRX - DragonRealms Platinum
 * DRF - DragonRealms Fallen
 
-example usage with CRON:
+example usage with CRON (Times in UTC):
 
 ```yaml
 #.github/workflows/rewards.yml
 name: rewards
 on:
+  workflow_dispatch:
   schedule:
     - cron: "5 1 * * *"
 jobs:
