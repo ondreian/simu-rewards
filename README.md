@@ -13,12 +13,13 @@ Game Code Options:
 * DRX - DragonRealms Platinum
 * DRF - DragonRealms Fallen
 
-example usage with CRON:
+example usage with CRON (Times in UTC):
 
 ```yaml
 #.github/workflows/rewards.yml
 name: rewards
 on:
+  workflow_dispatch:
   schedule:
     - cron: "5 1 * * *"
 jobs:
@@ -26,11 +27,11 @@ jobs:
     runs-on: ubuntu-latest
     name: login account
     steps:
-      - uses: ondreian/simu-rewards@v1
+      - uses: ondreian/simu-rewards@v1.1.0
         with:
           account: ${{ secrets.ACCOUNT1 }}
           password: ${{ secrets.PASSWORD1 }}
-      - uses: ondreian/simu-rewards@v1
+      - uses: ondreian/simu-rewards@v1.1.0
         with:
           account: ${{ secrets.ACCOUNT2 }}
           password: ${{ secrets.PASSWORD2 }}
