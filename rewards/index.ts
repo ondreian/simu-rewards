@@ -36,7 +36,10 @@ export async function claim (account? : string, password? : string, gameCode? : 
       //console.log("logging in %s", character.name)
       const otp = await SGE.Secure.getOTP(account, password, gameCode, character.name)
       //console.log("received for %s at %s:%s", character.name, otp.host, otp.port)
-      const outcome = await Game.useOTP(otp)
+      const outcome = await Promise.race([
+        await Game.useOTP(otp),
+        new Promise((_, reject)=> setTimeout(reject, 60 * 1_000))
+      ]) as Awaited<ReturnType<typeof Game.useOTP>>
       const msg = `${character.name} > ${outcome.message}`
       console.log(msg)
       ok.push(msg)
