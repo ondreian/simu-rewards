@@ -26,6 +26,7 @@ jobs:
   login-account:
     runs-on: ubuntu-latest
     name: login account
+    timeout-minutes: 5
     steps:
       - uses: ondreian/simu-rewards@v1.1.0
         with:

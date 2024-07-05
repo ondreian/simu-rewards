@@ -13,7 +13,6 @@ inputs:
     default: 'GS3'
 runs:
   using: "composite"
-  timeout-minutes: 5
   steps:
     #- uses: actions/checkout@v4
     - uses: oven-sh/setup-bun@v1
