@@ -6,7 +6,11 @@ export async function useOTP (otp : OTP) : Promise<{message: string}> {
     const game = new net.Socket()
     game.setDefaultEncoding("ascii")
 
-    game.connect({host: otp.host, port: otp.port}, ()=> {  
+    const host = otp.host.includes("dr.simutronics.net")
+      ? "storm.dr.game.play.net" // dns fix
+      : otp.host
+
+    game.connect({host, port: otp.port}, ()=> {  
       //console.log("connected to %s:%s", otp.host, otp.port)
       game.write(otp.key + "\n")
       game.write("/FE:STORMFRONT /VERSION:1.0.1.22 /XML\n")
