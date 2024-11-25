@@ -21,6 +21,8 @@ name: rewards
 on:
   workflow_dispatch:
   schedule:
+    # CRON Generator Link: https://crontab.guru/#5_1_*_*_*
+    # Below is 01:05 AM UTC
     - cron: "5 1 * * *"
 jobs:
   login-account:
