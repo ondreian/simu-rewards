@@ -1,4 +1,3 @@
----
 name: 'Simu Rewards'
 description: 'trys to claim account rewards and login rewards for all characters on an account'
 inputs:
