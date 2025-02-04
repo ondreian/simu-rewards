@@ -2,23 +2,19 @@ on:
   push:
     branches:
       - main
+
 permissions:
   contents: write
   pull-requests: write
-name: release
+
+name: release-please
 
 jobs:
-  release:
+  release-please:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
-      # you'll need to add an `id` in order to access output variables
-      - uses: codfish/semantic-release-action@v3
-        id: semantic
+      - uses: googleapis/release-please-action@v4
         with:
-          dry-run: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - run: echo "created release ${{ steps.semantic.outputs.release-version }}"
+          # this is a built-in strategy in release-please, see "Action Inputs"
+          # for more options
+          release-type: simple
