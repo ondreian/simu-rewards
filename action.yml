@@ -1,26 +1,30 @@
-name: 'Simu Rewards'
-description: 'trys to claim account rewards and login rewards for all characters on an account'
+---
+name: Simu Rewards
+description: trys to claim account rewards and login rewards for all characters
+  on an account
 inputs:
-  account:  
-    description: 'which account to claim the rewards on'
+  account:
+    description: which account to claim the rewards on
     required: true
-  password:  
-    description: 'password to the account'
+  password:
+    description: password to the account
     required: true
   game:
-    description: 'game code'
+    description: game code
     required: false
-    default: 'GS3'
+    default: GS3
 runs:
-  using: "composite"
+  using: composite
   steps:
-    #- uses: actions/checkout@v4
     - uses: oven-sh/setup-bun@v1
     - name: claim rewards
-      run: cd ${{ github.action_path }} && bun install && bun index.ts
-      shell: bash
+      uses: nick-fields/retry@v3
+      with:
+        timeout_minutes: 5
+        max_attempts: 3
+        shell: bash
+        command: cd ${{ github.action_path }} && bun install && bun index.ts
       env:
         ACCOUNT: ${{ inputs.account }}
         PASSWORD: ${{ inputs.password }}
         GAME_CODE: ${{ inputs.game }}
-
