@@ -2,10 +2,10 @@
 name: 'Simu Rewards'
 description: 'trys to claim account rewards and login rewards for all characters on an account'
 inputs:
-  account:
+  account:  
     description: 'which account to claim the rewards on'
     required: true
-  password:
+  password:  
     description: 'password to the account'
     required: true
   game:
@@ -15,6 +15,7 @@ inputs:
 runs:
   using: "composite"
   steps:
+    #- uses: actions/checkout@v4
     - uses: oven-sh/setup-bun@v2
     - name: claim rewards
       uses: nick-fields/retry@v3
@@ -27,3 +28,4 @@ runs:
         ACCOUNT: ${{ inputs.account }}
         PASSWORD: ${{ inputs.password }}
         GAME_CODE: ${{ inputs.game }}
+
