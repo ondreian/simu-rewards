@@ -30,11 +30,11 @@ jobs:
     name: login account
     timeout-minutes: 5
     steps:
-      - uses: ondreian/simu-rewards@v1.1.0
+      - uses: ondreian/simu-rewards@v1
         with:
           account: ${{ secrets.ACCOUNT1 }}
           password: ${{ secrets.PASSWORD1 }}
-      - uses: ondreian/simu-rewards@v1.1.0
+      - uses: ondreian/simu-rewards@v1
         with:
           account: ${{ secrets.ACCOUNT2 }}
           password: ${{ secrets.PASSWORD2 }}
@@ -76,11 +76,11 @@ jobs:
     name: login account
     timeout-minutes: 5
     steps:
-      - uses: ondreian/simu-rewards@v1.1.0
+      - uses: ondreian/simu-rewards@v1
         with:
           account: ${{ secrets.ACCOUNT1 }}
           password: ${{ secrets.PASSWORD1 }}
-      - uses: ondreian/simu-rewards@v1.1.0
+      - uses: ondreian/simu-rewards@v1
         with:
           account: ${{ secrets.ACCOUNT2 }}
           password: ${{ secrets.PASSWORD2 }}
