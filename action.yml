@@ -17,12 +17,12 @@ runs:
     #- uses: actions/checkout@v4
     - uses: oven-sh/setup-bun@v1
     - name: claim rewards
+        env:
+          ACCOUNT: ${{ inputs.account }}
+          PASSWORD: ${{ inputs.password }}
+          GAME_CODE: ${{ inputs.game }}
       uses: nick-fields/retry@v3
       with:
         timeout_minutes: 5
         shell: bash
         command: cd ${{ github.action_path }} && bun install && bun index.ts
-        env:
-          ACCOUNT: ${{ inputs.account }}
-          PASSWORD: ${{ inputs.password }}
-          GAME_CODE: ${{ inputs.game }}
