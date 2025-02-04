@@ -1,0 +1,24 @@
+on:
+  push:
+    branches:
+      - master
+permissions:
+  contents: write
+  pull-requests: write
+name: release
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      # you'll need to add an `id` in order to access output variables
+      - uses: codfish/semantic-release-action@v3
+        id: semantic
+        with:
+          dry-run: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: echo "created release ${{ steps.semantic.outputs.release-version }}"
