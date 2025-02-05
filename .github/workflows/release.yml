@@ -19,7 +19,8 @@ jobs:
           # this is a built-in strategy in release-please, see "Action Inputs"
           # for more options
           release-type: simple
-      - name: tag major and minor versions
+      - uses: actions/checkout@v4
+      - name: tag-major
         if: ${{ steps.release.outputs.release_created }}
         run: |
           git config user.name github-actions[bot]
