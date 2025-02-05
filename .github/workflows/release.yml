@@ -27,5 +27,6 @@ jobs:
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git remote add gh-token "https://${{ secrets.GITHUB_TOKEN }}@github.com/ondreian/simu-rewards.git"
           git tag -d v${{ steps.release.outputs.major }} || true
+          git push origin :v${{ steps.release.outputs.major }} || true
           git tag -a v${{ steps.release.outputs.major }} -m "Release v${{ steps.release.outputs.major }}"
           git push origin v${{ steps.release.outputs.major }}
