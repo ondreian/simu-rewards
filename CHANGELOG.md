@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.1](https://github.com/ondreian/simu-rewards/compare/v1.2.0...v1.2.1) (2025-02-05)
+
+
+### Bug Fixes
+
+* add checkout step; ([d406bee](https://github.com/ondreian/simu-rewards/commit/d406beedd4be1756b7f66c331b503d6d6862fbad))
+* add minor tags; ([682dbc7](https://github.com/ondreian/simu-rewards/commit/682dbc72b85e54b6f2b90cbda6bf3f25d7f629b8))
+
 ## [1.2.0](https://github.com/ondreian/simu-rewards/compare/v1.1.0...v1.2.0) (2025-02-04)
 
 
