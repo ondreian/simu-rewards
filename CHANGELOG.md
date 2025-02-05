@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/ondreian/simu-rewards/compare/v1.2.2...v1.2.3) (2025-02-05)
+
+
+### Bug Fixes
+
+* correctly delete major tags in cd; ([4b32067](https://github.com/ondreian/simu-rewards/commit/4b320678892a5cbecdf2fc1d5a73589f87f2b8ad))
+
 ## [1.2.2](https://github.com/ondreian/simu-rewards/compare/v1.2.1...v1.2.2) (2025-02-05)
 
 
