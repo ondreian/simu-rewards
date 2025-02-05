@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/ondreian/simu-rewards/compare/v1.2.1...v1.2.2) (2025-02-05)
+
+
+### Bug Fixes
+
+* use correct .git; ([0dfef9e](https://github.com/ondreian/simu-rewards/commit/0dfef9eae6c85876d557792bdd7fd841cdfa8db9))
+
 ## [1.2.1](https://github.com/ondreian/simu-rewards/compare/v1.2.0...v1.2.1) (2025-02-05)
 
 
