@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     name: login account
     steps:
-      - uses: ondreian/simu-rewards@v1.2.0
+      - uses: ondreian/simu-rewards@v1
         with:
           account: ${{ secrets.ACCOUNT1 }}
           password: ${{ secrets.PASSWORD1 }}
@@ -76,7 +76,7 @@ jobs:
     runs-on: ubuntu-latest
     name: login account
     steps:
-      - uses: ondreian/simu-rewards@v1.2.0
+      - uses: ondreian/simu-rewards@v1
         with:
           account: ${{ secrets.ACCOUNT1 }}
           password: ${{ secrets.PASSWORD1 }}
