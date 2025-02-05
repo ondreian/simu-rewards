@@ -22,7 +22,8 @@ on:
   workflow_dispatch:
   schedule:
     # CRON Generator Link: https://crontab.guru/#5_1_*_*_*
-    # Below is 01:05 AM UTC
+    # Below is 01:05 AM UTC, which translates to 8:05 PM EST (Spring/Summer), or 9:05 PM EDT (Fall/Winter)
+    # Please update accordingly to stagger server load against Simutronic's systems.
     - cron: "5 1 * * *"
 jobs:
   login-account:
@@ -67,7 +68,8 @@ on:
   workflow_dispatch:
   schedule:
     # CRON Generator Link: https://crontab.guru/#5_1_*_*_*
-    # Below is 01:05 AM UTC
+    # Below is 01:05 AM UTC, which translates to 8:05 PM EST (Spring/Summer), or 9:05 PM EDT (Fall/Winter)
+    # Please update accordingly to stagger server load against Simutronic's systems.
     - cron: "5 1 * * *"
 jobs:
   login-account:
